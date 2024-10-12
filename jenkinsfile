@@ -8,13 +8,11 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            // steps {
-
-            // }
-
-            script {
-                pwd
-                ls -lrth
+            steps {
+                script {
+                    pwd
+                    ls -lrth
+                }
             }
         }
 
