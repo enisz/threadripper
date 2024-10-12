@@ -9,10 +9,10 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                script {
-                    pwd
-                    ls -lrth
-                }
+                // script {
+                //     pwd
+                //     ls -lrth
+                // }
             }
         }
 
