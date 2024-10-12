@@ -1,44 +1,17 @@
 pipeline {
     agent any
-
-    environment {
-        DOCKER_IMAGE = 'sidharthsingh7/ss_backend'
-        DOCKER_TAG = "0.0.1.RELEASE"
-    }
-
     stages {
-        stage('Checkout') {
+        stage('Example') {
             steps {
-                // script {
-                //     pwd
-                //     ls -lrth
-                // }
+                echo 'Hello World'
+
+                script {
+                    def browsers = ['chrome', 'firefox']
+                    for (int i = 0; i < browsers.size(); ++i) {
+                        echo "Testing the ${browsers[i]} browser"
+                    }
+                }
             }
         }
-
-        // stage('Build') {
-        //     steps {
-        //         script {
-        //             sh 'docker build -t $DOCKER_IMAGE:$DOCKER_TAG .'
-        //         }
-        //     }
-        // }
-
-        // stage('Test') {
-        //     steps {
-        //         script {
-        //             sh 'docker run --rm $DOCKER_IMAGE:$DOCKER_TAG npm test'
-        //         }
-        //     }
-        // }
-
-        // stage('Push to Docker Hub') {
-        //     steps {
-        //         script {
-        //             sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-        //             sh 'docker push $DOCKER_IMAGE:$DOCKER_TAG'
-        //         }
-        //     }
-        // }
     }
 }
