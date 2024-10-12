@@ -1,14 +1,26 @@
-pipeline {
-    agent any
-    stages {
-        stage('Example') {
-            steps {
-                echo 'Hello World'
+// pipeline {
+//     agent any
+//     stages {
+//         stage('Example') {
+//             steps {
+//                 echo 'Hello World'
 
-                script {
-                    echo sh(returnStdout: true, script: 'pwd')
-                    echo sh(returnStdout: true, script: 'ls -lrth')
-                }
+//                 script {
+//                     echo sh(returnStdout: true, script: 'pwd')
+//                     echo sh(returnStdout: true, script: 'ls -lrth')
+//                 }
+//             }
+//         }
+//     }
+// }
+
+
+pipeline {
+    agent { docker { image 'node:20.18.0-alpine3.20' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'node --version'
             }
         }
     }
