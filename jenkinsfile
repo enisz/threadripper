@@ -20,7 +20,12 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'node --version'
+                echo 'Hello World'
+
+                script {
+                    echo sh(returnStdout: true, script: 'pwd')
+                    echo sh(returnStdout: true, script: 'ls -lrth')
+                }
             }
         }
     }
