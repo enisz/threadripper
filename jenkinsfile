@@ -6,7 +6,8 @@ pipeline {
                 echo 'Hello World'
 
                 script {
-                    ls
+                    echo sh(returnStdout: true, script: 'pwd')
+                    echo sh(returnStdout: true, script: 'ls -lrth')
                 }
             }
         }
